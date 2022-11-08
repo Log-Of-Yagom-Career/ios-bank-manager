@@ -32,7 +32,7 @@ struct Bank {
     }
     
     mutating private func openBank() {
-        let totalCustomer = Int.random(in: 10...30)
+        let totalCustomer = 10//Int.random(in: 10...30)
         
         listUpCustomer(totalCustomer)
         startTask()
@@ -58,103 +58,52 @@ struct Bank {
         let depo1 = BankManager(nickName: "예금이1", task: .deposit)
         let depo2 = BankManager(nickName: "예금이2", task: .deposit)
         let loan1 = BankManager(nickName: "대출이1", task: .loan)
-        DispatchQueue.global().async { [self] in
-            while lineOfLoanCustomer.isEmpty == false {
-                guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
-                    print("111111")
-                    break
-                }
-                loan1.task(customer: currentCustomer)
-            }
-        }
+        
+        let loanSemaphore = DispatchSemaphore(value: 1)
+        let depoSemaphpre = DispatchSemaphore(value: 2)
+        
         while lineOfLoanCustomer.isEmpty == false {
             guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
                 print("111111")
                 break
             }
-            DispatchQueue.global().sync {
+            
+            DispatchQueue.global().async {
+                loanSemaphore.wait()
                 loan1.task(customer: currentCustomer)
+                loanSemaphore.signal()
             }
         }
+        
         while lineOfDepositCustomer.isEmpty == false {
             guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
-                print("222222")
+                print("2222222")
                 break
             }
-            DispatchQueue.global().sync {
+            
+            DispatchQueue.global().async {
+                depoSemaphpre.wait()
                 depo1.task(customer: currentCustomer)
+                depoSemaphpre.signal()
             }
+            print("예금 1")
         }
+        
         while lineOfDepositCustomer.isEmpty == false {
             guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
                 print("3333333")
                 break
             }
-            DispatchQueue.global().sync {
+            
+            DispatchQueue.global().async {
+                depoSemaphpre.wait()
                 depo2.task(customer: currentCustomer)
+                depoSemaphpre.signal()
             }
+            print("예금 2")
         }
-        
-//        while lineOfLoanCustomer.isEmpty == false {
-//            guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
-//                print("2222222")
-//                break
-//            }
-//            DispatchQueue.global().sync {
-//                depo2.task(customer: currentCustomer)
-//            }
-//        }
-        
-//        while lineOfDepositCustomer.isEmpty == false {
-//            guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
-//                break
-//            }
-//            depo1.task(customer: currentCustomer)
-//        }
-//
-//        DispatchQueue.global().async {
-//
-//            while lineOfDepositCustomer.isEmpty == false {
-//                guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
-//                    break
-//                }
-//                depo1.task(customer: currentCustomer)
-//            }
-//
-//        }
-//        DispatchQueue.global().async {
-//
-//            while lineOfDepositCustomer.isEmpty == false {
-//                guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
-//                    break
-//                }
-//                depo2.task(customer: currentCustomer)
-//            }
-//
-//        }
-        
-//
-//        DispatchQueue.global().async {
-//            <#code#>
-//        }
     }
     
-//    mutating private func startTask() {
-//        taskTime = 0
-//        processedCustomer = 0
-//
-//        while lineOfCustomer.isEmpty == false {
-//            guard let currentCustomer = lineOfCustomer.dequeue() else {
-//                break
-//            }
-//            print("\(currentCustomer.waitingNumber)번 고객 업무 시작")
-//            taskTime += 0.7
-//            usleep(70_000)
-//            processedCustomer += 1
-//            print("\(currentCustomer.waitingNumber)번 고객 업무 종료")
-//        }
-//
 //        taskTime = round(taskTime * 100)/100
 //        print("업무가 마감되었습니다. 오늘 업무를 처리한 고객은 총 \(processedCustomer)명이며, 총 업무시간은 \(taskTime)초입니다.")
-//    }
 }
