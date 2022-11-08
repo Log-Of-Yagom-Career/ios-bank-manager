@@ -5,7 +5,7 @@
 import Foundation
 
 struct Bank {
-    private let manager: [BankManager]
+    private let manager = [BankManager]()
     private var lineOfDepositCustomer = LinkedList<Customer>()
     private var lineOfLoanCustomer = LinkedList<Customer>()
     private var processedCustomer: Int = 0
@@ -35,7 +35,7 @@ struct Bank {
         let totalCustomer = Int.random(in: 10...30)
         
         listUpCustomer(totalCustomer)
-//        startTask()
+        startTask()
         selectMenu()
     }
     
@@ -52,6 +52,91 @@ struct Bank {
     
     func randomTask() -> Task {
         Int.random(in: 1...2) == 1 ? .deposit : .loan
+    }
+    
+    mutating private func startTask() {
+        let depo1 = BankManager(nickName: "예금이1", task: .deposit)
+        let depo2 = BankManager(nickName: "예금이2", task: .deposit)
+        let loan1 = BankManager(nickName: "대출이1", task: .loan)
+        DispatchQueue.global().async { [self] in
+            while lineOfLoanCustomer.isEmpty == false {
+                guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
+                    print("111111")
+                    break
+                }
+                loan1.task(customer: currentCustomer)
+            }
+        }
+        while lineOfLoanCustomer.isEmpty == false {
+            guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
+                print("111111")
+                break
+            }
+            DispatchQueue.global().sync {
+                loan1.task(customer: currentCustomer)
+            }
+        }
+        while lineOfDepositCustomer.isEmpty == false {
+            guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
+                print("222222")
+                break
+            }
+            DispatchQueue.global().sync {
+                depo1.task(customer: currentCustomer)
+            }
+        }
+        while lineOfDepositCustomer.isEmpty == false {
+            guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
+                print("3333333")
+                break
+            }
+            DispatchQueue.global().sync {
+                depo2.task(customer: currentCustomer)
+            }
+        }
+        
+//        while lineOfLoanCustomer.isEmpty == false {
+//            guard let currentCustomer = lineOfLoanCustomer.dequeue() else {
+//                print("2222222")
+//                break
+//            }
+//            DispatchQueue.global().sync {
+//                depo2.task(customer: currentCustomer)
+//            }
+//        }
+        
+//        while lineOfDepositCustomer.isEmpty == false {
+//            guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
+//                break
+//            }
+//            depo1.task(customer: currentCustomer)
+//        }
+//
+//        DispatchQueue.global().async {
+//
+//            while lineOfDepositCustomer.isEmpty == false {
+//                guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
+//                    break
+//                }
+//                depo1.task(customer: currentCustomer)
+//            }
+//
+//        }
+//        DispatchQueue.global().async {
+//
+//            while lineOfDepositCustomer.isEmpty == false {
+//                guard let currentCustomer = lineOfDepositCustomer.dequeue() else {
+//                    break
+//                }
+//                depo2.task(customer: currentCustomer)
+//            }
+//
+//        }
+        
+//
+//        DispatchQueue.global().async {
+//            <#code#>
+//        }
     }
     
 //    mutating private func startTask() {
