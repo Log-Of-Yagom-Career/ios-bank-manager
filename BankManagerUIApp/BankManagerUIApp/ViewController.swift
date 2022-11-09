@@ -9,6 +9,7 @@ import UIKit
 class ViewController: UIViewController {
     let waitingBackgroundColor = UIColor(red: 53/255, green: 199/255, blue: 89/255, alpha: 1)
     let taskingBackgroundColor = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,23 @@ class ViewController: UIViewController {
         
         customerAddButton.addTarget(self, action: #selector(customerClick), for: .touchUpInside)
         resetButton.addTarget(self, action: #selector(resetClick), for: .touchUpInside)
+        
+        let waitingListView = CustomCustomerListView()
+        let taskingListView = CustomCustomerListView()
+        
+        view.addSubview(waitingListView)
+        view.addSubview(taskingListView)
+        
+        waitingListView.widthAnchor.constraint(equalTo: taskingListView.widthAnchor).isActive = true
+        waitingListView.rightAnchor.constraint(equalTo: taskingListView.leftAnchor).isActive = true
+        
+        waitingListView.topAnchor.constraint(equalTo: taskingStackview.bottomAnchor).isActive = true
+        waitingListView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        waitingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        taskingListView.topAnchor.constraint(equalTo: taskingStackview.bottomAnchor).isActive = true
+        taskingListView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        taskingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     private func addTopStackview(stackview: UIStackView, headButton: UIButton, tailButton: UIButton) {
