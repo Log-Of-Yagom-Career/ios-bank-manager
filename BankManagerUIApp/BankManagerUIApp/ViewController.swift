@@ -34,6 +34,9 @@ class ViewController: UIViewController {
         taskingStackview.addArrangedSubview(waitingLabel)
         taskingStackview.addArrangedSubview(taskingLabel)
         waitingLabel.widthAnchor.constraint(equalTo: taskingLabel.widthAnchor).isActive = true
+        
+        customerAddButton.addTarget(self, action: #selector(customerClick), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(resetClick), for: .touchUpInside)
     }
     
     private func addTopStackview(stackview: UIStackView, headButton: UIButton, tailButton: UIButton) {
@@ -104,6 +107,14 @@ class ViewController: UIViewController {
         label.backgroundColor = backgroundColor
         
         return label
+    }
+    
+    @objc func customerClick() {
+        print("고객 10명 추가")
+    }
+    
+    @objc func resetClick() {
+        print("초기화")
     }
 }
 
