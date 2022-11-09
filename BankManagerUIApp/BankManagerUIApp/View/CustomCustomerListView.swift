@@ -64,4 +64,21 @@ class CustomCustomerListView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    //        let waitingListView = CustomCustomerListView()
+    //        let taskingListView = CustomCustomerListView()
+    //
+    //        view.addSubview(waitingListView)
+    //        view.addSubview(taskingListView)
+    //
+    //        waitingListView.widthAnchor.constraint(equalTo: taskingListView.widthAnchor).isActive = true
+    //        waitingListView.rightAnchor.constraint(equalTo: taskingListView.leftAnchor).isActive = true
+    //
+    //        waitingListView.topAnchor.constraint(equalTo: taskingStackview.bottomAnchor).isActive = true
+    //        waitingListView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    //        waitingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    //
+    //        taskingListView.topAnchor.constraint(equalTo: taskingStackview.bottomAnchor).isActive = true
+    //        taskingListView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    //        taskingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 }

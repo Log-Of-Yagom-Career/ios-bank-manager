@@ -16,6 +16,7 @@
 		C7694E52259C3EA20053667F /* BankManagerUIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7694E51259C3EA20053667F /* BankManagerUIAppTests.swift */; };
 		C7694E5D259C3EA20053667F /* BankManagerUIAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7694E5C259C3EA20053667F /* BankManagerUIAppUITests.swift */; };
 		F6BCED9A291BFCDC00B7E09D /* TopButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */; };
+		F6BCED9F291C095E00B7E09D /* TaskingStackview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */; };
 		FC4E964A291B6A5B00946C0A /* BankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9644291B6A5B00946C0A /* BankManager.swift */; };
 		FC4E964B291B6A5B00946C0A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9645291B6A5B00946C0A /* LinkedList.swift */; };
 		FC4E964C291B6A5B00946C0A /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9646291B6A5B00946C0A /* Node.swift */; };
@@ -59,6 +60,7 @@
 		C7694E5C259C3EA20053667F /* BankManagerUIAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankManagerUIAppUITests.swift; sourceTree = "<group>"; };
 		C7694E5E259C3EA20053667F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonStackView.swift; sourceTree = "<group>"; };
+		F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskingStackview.swift; sourceTree = "<group>"; };
 		FC4E9644291B6A5B00946C0A /* BankManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankManager.swift; sourceTree = "<group>"; };
 		FC4E9645291B6A5B00946C0A /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		FC4E9646291B6A5B00946C0A /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */,
+				F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */,
 				FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */,
 				FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */,
 			);
@@ -305,6 +308,7 @@
 				F6BCED9A291BFCDC00B7E09D /* TopButtonStackView.swift in Sources */,
 				FC4E964E291B6A5B00946C0A /* Bank.swift in Sources */,
 				FC4E964C291B6A5B00946C0A /* Node.swift in Sources */,
+				F6BCED9F291C095E00B7E09D /* TaskingStackview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
