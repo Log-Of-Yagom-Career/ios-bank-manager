@@ -17,6 +17,7 @@
 		C7694E5D259C3EA20053667F /* BankManagerUIAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7694E5C259C3EA20053667F /* BankManagerUIAppUITests.swift */; };
 		F6BCED9A291BFCDC00B7E09D /* TopButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */; };
 		F6BCED9F291C095E00B7E09D /* TaskingStackview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */; };
+		F6BCEDA1291C0D9700B7E09D /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BCEDA0291C0D9700B7E09D /* TimerLabel.swift */; };
 		FC4E964A291B6A5B00946C0A /* BankManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9644291B6A5B00946C0A /* BankManager.swift */; };
 		FC4E964B291B6A5B00946C0A /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9645291B6A5B00946C0A /* LinkedList.swift */; };
 		FC4E964C291B6A5B00946C0A /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9646291B6A5B00946C0A /* Node.swift */; };
@@ -61,6 +62,7 @@
 		C7694E5E259C3EA20053667F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonStackView.swift; sourceTree = "<group>"; };
 		F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskingStackview.swift; sourceTree = "<group>"; };
+		F6BCEDA0291C0D9700B7E09D /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		FC4E9644291B6A5B00946C0A /* BankManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankManager.swift; sourceTree = "<group>"; };
 		FC4E9645291B6A5B00946C0A /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		FC4E9646291B6A5B00946C0A /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */,
+				F6BCEDA0291C0D9700B7E09D /* TimerLabel.swift */,
 				F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */,
 				FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */,
 				FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */,
@@ -300,6 +303,7 @@
 				FC4E9673291BAF3600946C0A /* CustomCustomerListView.swift in Sources */,
 				FC4E964F291B6A5B00946C0A /* Customer.swift in Sources */,
 				FC4E964B291B6A5B00946C0A /* LinkedList.swift in Sources */,
+				F6BCEDA1291C0D9700B7E09D /* TimerLabel.swift in Sources */,
 				C7694E3F259C3E9F0053667F /* ViewController.swift in Sources */,
 				FC4E9675291BAFC800946C0A /* CustomCustomerListViewProtocol.swift in Sources */,
 				FC4E964A291B6A5B00946C0A /* BankManager.swift in Sources */,

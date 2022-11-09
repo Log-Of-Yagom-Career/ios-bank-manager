@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     let waitingBackgroundColor = UIColor(red: 53/255, green: 199/255, blue: 89/255, alpha: 1)
     let taskingBackgroundColor = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
     
+    let timerLabel = TimerLabel()
     let taskingStackView = TaskingStackview()
     
     override func viewDidLoad() {
@@ -18,7 +19,6 @@ class ViewController: UIViewController {
         let buttonStackView = topStackView()
         let customerAddButton = taskButton(title: "고객 10명 추가", textColor: .blue)
         let resetButton = taskButton(title: "초기화", textColor: .red)
-        let timerLabel = timerLabel()
         
         view.addSubview(buttonStackView)
         addTopStackview(stackview: buttonStackView,headButton: customerAddButton, tailButton: resetButton)
@@ -63,16 +63,6 @@ class ViewController: UIViewController {
         stackview.alignment = .center
         
         return stackview
-    }
-    
-    private func timerLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "업무시간 - " + "00:00:000"
-        label.font = .preferredFont(forTextStyle: .title2)
-        label.textAlignment = .center
-        
-        return label
     }
     
     private func timerLableForTop(timerLabel: UILabel,for topAnchor: UIView) {
