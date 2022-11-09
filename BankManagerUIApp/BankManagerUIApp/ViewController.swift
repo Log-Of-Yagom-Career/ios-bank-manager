@@ -7,19 +7,33 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let waitingBackgroundColor = UIColor(red: 53/255, green: 199/255, blue: 89/255, alpha: 1)
+    let taskingBackgroundColor = UIColor(red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let buttonStackView = topStackView()
         let customerAddButton = taskButton(title: "고객 10명 추가", textColor: .blue)
         let resetButton = taskButton(title: "초기화", textColor: .red)
+        let timerLabel = timerLabel()
+        let taskingStackview = taskLabelStackview()
+        let waitingLabel = taskLabel(title: "대기중", backgroundColor: waitingBackgroundColor)
+        let taskingLabel = taskLabel(title: "업무중", backgroundColor: taskingBackgroundColor)
         
         view.addSubview(buttonStackView)
         addTopStackview(stackview: buttonStackView,headButton: customerAddButton, tailButton: resetButton)
         
-        let timerLabel = timerLabel()
         view.addSubview(timerLabel)
         timerLableForTop(timerLabel: timerLabel, for: buttonStackView)
+        
+        view.addSubview(taskingStackview)
+        taskingStackview.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 15).isActive = true
+        taskingStackview.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        taskingStackview.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        taskingStackview.addArrangedSubview(waitingLabel)
+        taskingStackview.addArrangedSubview(taskingLabel)
+        waitingLabel.widthAnchor.constraint(equalTo: taskingLabel.widthAnchor).isActive = true
     }
     
     private func addTopStackview(stackview: UIStackView, headButton: UIButton, tailButton: UIButton) {
@@ -68,6 +82,28 @@ class ViewController: UIViewController {
         timerLabel.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: 15).isActive = true
         timerLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         timerLabel.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+    
+    private func taskLabelStackview() -> UIStackView {
+        let stackview = UIStackView()
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.axis = .horizontal
+        stackview.alignment = .center
+        stackview.distribution = .fill
+        
+        return stackview
+    }
+    
+    private func taskLabel(title: String, backgroundColor: UIColor) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.text = title
+        label.textColor = .white
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.backgroundColor = backgroundColor
+        
+        return label
     }
 }
 
