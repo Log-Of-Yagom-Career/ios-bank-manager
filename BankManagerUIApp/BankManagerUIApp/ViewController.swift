@@ -11,11 +11,13 @@ class ViewController: UIViewController {
     let timerLabel = TimerLabel()
     let taskingStackView = TaskingStackview()
     let processingListStackView = ProcessingListStackView()
+    var taskTimer = Timer()
+    var timerChecking: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureAutoLayout()
         
+        configureAutoLayout()
     }
     
     private func configureAutoLayout() {
@@ -51,18 +53,36 @@ class ViewController: UIViewController {
     
     @objc private func customerClick() {
         print("고객 10명 추가")
+        
+        
         switch State.now {
         case .stop:
+            timerLabel.text = "업무시간 - 0.00"
+            timerChecking = 0.00
+            taskTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            // 10명 대기열 추가
             State.now = .progress
-            print("타이머 초기화하고 시작")
         case .progress:
-            print("타이머 진행중")
+            print("진행중 ...")
+            // 10명 대기열 추가
         }
     }
     
     @objc private func resetClick() {
         print("초기화")
+        
+        taskTimer.invalidate()
+        // 모든 대기열 삭제
         State.now = .stop
+    }
+    
+    @objc private func timerAction() {
+        timerChecking += 0.01
+        
+        let numberFMT = NumberFormatter()
+        numberFMT.numberStyle = .decimal
+        
+        timerLabel.text = "업무시간 - " + (numberFMT.string(for: timerChecking) ?? "00:00:000")
     }
 }
 
