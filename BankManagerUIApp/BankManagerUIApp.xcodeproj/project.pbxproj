@@ -28,6 +28,7 @@
 		FC9EEE642920EBFA0041ADBB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEE5E2920EBFA0041ADBB /* Task.swift */; };
 		FC9EEE652920EBFA0041ADBB /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEE5F2920EBFA0041ADBB /* Customer.swift */; };
 		FC9EEE662920EBFA0041ADBB /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEE602920EBFA0041ADBB /* Bank.swift */; };
+		FC9EEE692920F1D00041ADBB /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEE682920F1D00041ADBB /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		FC9EEE5E2920EBFA0041ADBB /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		FC9EEE5F2920EBFA0041ADBB /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		FC9EEE602920EBFA0041ADBB /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		FC9EEE682920F1D00041ADBB /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				FC9EEE602920EBFA0041ADBB /* Bank.swift */,
+				FC9EEE682920F1D00041ADBB /* State.swift */,
 				FC9EEE5C2920EBFA0041ADBB /* BankManager.swift */,
 				FC9EEE5F2920EBFA0041ADBB /* Customer.swift */,
 				FC9EEE5D2920EBFA0041ADBB /* LinkedList.swift */,
@@ -342,6 +345,7 @@
 				C7694E3D259C3E9F0053667F /* SceneDelegate.swift in Sources */,
 				F6BCED9A291BFCDC00B7E09D /* TopButtonStackView.swift in Sources */,
 				F6BCED9F291C095E00B7E09D /* TaskingStackview.swift in Sources */,
+				FC9EEE692920F1D00041ADBB /* State.swift in Sources */,
 				FC9EEE632920EBFA0041ADBB /* LinkedList.swift in Sources */,
 				FC9EEE642920EBFA0041ADBB /* Task.swift in Sources */,
 				FC9EEE622920EBFA0041ADBB /* BankManager.swift in Sources */,

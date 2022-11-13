@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAutoLayout()
         
+    }
+    
+    private func configureAutoLayout() {
         view.addSubview(buttonStackView)
         buttonStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         buttonStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -47,10 +51,18 @@ class ViewController: UIViewController {
     
     @objc private func customerClick() {
         print("고객 10명 추가")
+        switch State.now {
+        case .stop:
+            State.now = .progress
+            print("타이머 초기화하고 시작")
+        case .progress:
+            print("타이머 진행중")
+        }
     }
     
     @objc private func resetClick() {
         print("초기화")
+        State.now = .stop
     }
 }
 
