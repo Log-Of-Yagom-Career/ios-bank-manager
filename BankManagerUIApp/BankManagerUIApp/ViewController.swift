@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     let buttonStackView = TopButtonStackView()
     let timerLabel = TimerLabel()
     let taskingStackView = TaskingStackview()
+    let processingListStackView = ProcessingListStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,13 @@ class ViewController: UIViewController {
         taskingStackViewConfigure()
         buttonStackView.customerAddButton.addTarget(self, action: #selector(customerClick), for: .touchUpInside)
         buttonStackView.resetButton.addTarget(self, action: #selector(resetClick), for: .touchUpInside)
+        
+        view.addSubview(processingListStackView)
+        
+        processingListStackView.topAnchor.constraint(equalTo: taskingStackView.bottomAnchor).isActive = true
+        processingListStackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        processingListStackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        processingListStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func taskingStackViewConfigure() {

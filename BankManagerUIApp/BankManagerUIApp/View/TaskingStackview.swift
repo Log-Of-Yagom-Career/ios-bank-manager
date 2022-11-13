@@ -21,6 +21,7 @@ class TaskingStackview: UIStackView {
         self.addArrangedSubview(taskingLabel)
         
         waitingLabel.widthAnchor.constraint(equalTo: taskingLabel.widthAnchor).isActive = true
+//        self.heightAnchor.constraint(equalTo: waitingLabel.heightAnchor).isActive = true
     }
     
     required init(coder: NSCoder) {

@@ -8,7 +8,7 @@
 import UIKit
 
 final class TopButtonStackView: UIStackView {
-    var customerAddButton: UIButton {
+    var customerAddButton: UIButton = {
         let button = UIButton()
         button.setTitle("고객 10명 추가", for: .normal)
         button.setTitleColor(.blue, for: .normal)
@@ -17,9 +17,9 @@ final class TopButtonStackView: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
-    }
+    }()
     
-    var resetButton: UIButton {
+    var resetButton: UIButton = {
         let button = UIButton()
         button.setTitle("초기화", for: .normal)
         button.setTitleColor(.red, for: .normal)
@@ -28,12 +28,13 @@ final class TopButtonStackView: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
-    }
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configureLayout()
+//        self.heightAnchor.constraint(equalToConstant: customerAddButton.frame.height).isActive = true
     }
     
     required init(coder: NSCoder) {
