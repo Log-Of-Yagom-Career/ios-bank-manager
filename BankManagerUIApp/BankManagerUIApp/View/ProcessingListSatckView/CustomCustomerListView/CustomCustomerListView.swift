@@ -23,14 +23,7 @@ class CustomCustomerListView: UIView {
         return stackView
     }()
     
-    let listLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1 - 예금"
-        label.font = .preferredFont(forTextStyle: .title2)
-        
-        return label
-    }()
+    let listLabel = CustomerLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,6 +46,7 @@ class CustomCustomerListView: UIView {
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         
         let label1 = listLabel
+        label1.text = "1 - 예금"
         
         stackView.addArrangedSubview(label1)
     }

@@ -27,6 +27,7 @@
 		FC4E964F291B6A5B00946C0A /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9649291B6A5B00946C0A /* Customer.swift */; };
 		FC4E9673291BAF3600946C0A /* CustomCustomerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */; };
 		FC4E9675291BAFC800946C0A /* CustomCustomerListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */; };
+		FC9EEE4E2920E9B60041ADBB /* CustomerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9EEE4D2920E9B60041ADBB /* CustomerLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		FC4E9649291B6A5B00946C0A /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCustomerListView.swift; sourceTree = "<group>"; };
 		FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCustomerListViewProtocol.swift; sourceTree = "<group>"; };
+		FC9EEE4D2920E9B60041ADBB /* CustomerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,11 +167,28 @@
 				F6BCED99291BFCDC00B7E09D /* TopButtonStackView.swift */,
 				F6BCEDA0291C0D9700B7E09D /* TimerLabel.swift */,
 				F6BCED9E291C095E00B7E09D /* TaskingStackview.swift */,
-				FC2CEF74291F938400C20B29 /* ProcessingListStackView.swift */,
-				FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */,
-				FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */,
+				FC9EEE4B2920E9760041ADBB /* ProcessingListSatckView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FC9EEE4B2920E9760041ADBB /* ProcessingListSatckView */ = {
+			isa = PBXGroup;
+			children = (
+				FC2CEF74291F938400C20B29 /* ProcessingListStackView.swift */,
+				FC9EEE4C2920E9900041ADBB /* CustomCustomerListView */,
+			);
+			path = ProcessingListSatckView;
+			sourceTree = "<group>";
+		};
+		FC9EEE4C2920E9900041ADBB /* CustomCustomerListView */ = {
+			isa = PBXGroup;
+			children = (
+				FC4E9672291BAF3600946C0A /* CustomCustomerListView.swift */,
+				FC9EEE4D2920E9B60041ADBB /* CustomerLabel.swift */,
+				FC4E9674291BAFC800946C0A /* CustomCustomerListViewProtocol.swift */,
+			);
+			path = CustomCustomerListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9EEE4E2920E9B60041ADBB /* CustomerLabel.swift in Sources */,
 				FC4E964D291B6A5B00946C0A /* Task.swift in Sources */,
 				FC4E9673291BAF3600946C0A /* CustomCustomerListView.swift in Sources */,
 				FC4E964F291B6A5B00946C0A /* Customer.swift in Sources */,
