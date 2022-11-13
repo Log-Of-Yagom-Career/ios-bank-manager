@@ -8,19 +8,6 @@ struct Bank {
     private let manager = BankManager()
     private var lineOfCustomer = LinkedList<Customer>()
     
-    mutating func selectMenu() {
-        print(" 1 : 은행개점\n 2 : 종료\n입력 :", terminator: " ")
-        switch receiveUserInput() {
-        case "1":
-            openBank()
-        case "2":
-            return
-        default:
-            print("잘못된 입력값입니다. 다시 입력해주세요.")
-            selectMenu()
-        }
-    }
-    
     private func receiveUserInput() -> String {
         guard let userInput = readLine() else {
             return receiveUserInput()
@@ -28,13 +15,12 @@ struct Bank {
         return userInput
     }
     
-    mutating private func openBank() {
-        let totalCustomer = Int.random(in: 10...30)
+    mutating func openBank() -> [CustomerLabel] {
+        let totalCustomer = 10
         
         listUpCustomer(totalCustomer)
-        manager.startTask(lineOfCustomer)
-        manager.endTask()
-        selectMenu()
+        return manager.startTask(lineOfCustomer)
+//        manager.endTask()
     }
     
     mutating private func listUpCustomer(_ customerCount: Int) {

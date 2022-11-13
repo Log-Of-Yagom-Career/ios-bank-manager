@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let processingListStackView = ProcessingListStackView()
     var taskTimer = Timer()
     var timerChecking: TimeInterval = 0
+    var bank = Bank()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +55,17 @@ class ViewController: UIViewController {
     @objc private func customerClick() {
         print("고객 10명 추가")
         
-        
         switch State.now {
         case .stop:
             timerLabel.text = "업무시간 - 0.00"
             timerChecking = 0.00
-            taskTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            taskTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             // 10명 대기열 추가
+            
+            for label in bank.openBank() {
+                processingListStackView.waitingListView.customStackView.addArrangedSubview(label)
+            }
+            
             State.now = .progress
         case .progress:
             print("진행중 ...")
@@ -69,8 +74,6 @@ class ViewController: UIViewController {
     }
     
     @objc private func resetClick() {
-        print("초기화")
-        
         taskTimer.invalidate()
         // 모든 대기열 삭제
         State.now = .stop

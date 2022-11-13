@@ -14,22 +14,29 @@ class BankManager {
     private var loanTimer: TimeInterval = 0
     private var processedCustomer: Int = 0
     
-    func startTask(_ customerList: LinkedList<Customer>) {
+    func startTask(_ customerList: LinkedList<Customer>) -> [CustomerLabel] {
         let loanSemaphore = DispatchSemaphore(value: loanFront)
         let depoSemaphore = DispatchSemaphore(value: depositFront)
         var lineOfCustomer = customerList
+        var returnCustomerLabels = [CustomerLabel]()
         
         while lineOfCustomer.isEmpty == false {
             guard let currentCustomer = lineOfCustomer.dequeue() else { break }
+            let settingCustomerUILabel = CustomerLabel()
             
             switch currentCustomer.purposeOfService {
             case .deposit:
                 dispatchTask(of: currentCustomer, using: depoSemaphore)
+                settingCustomerUILabel.text = "예금 - \(currentCustomer.waitingNumber)"
             case .loan:
                 dispatchTask(of: currentCustomer, using: loanSemaphore)
+                settingCustomerUILabel.text = "대출 - \(currentCustomer.waitingNumber)"
             }
+            returnCustomerLabels.append(settingCustomerUILabel)
         }
         taskingGroup.wait()
+        
+        return returnCustomerLabels
     }
     
     private func dispatchTask(of currentCustomer: Customer, using semaphore: DispatchSemaphore) {
@@ -52,9 +59,11 @@ class BankManager {
         
         switch customer.purposeOfService {
         case .deposit:
-            usleep(700_000)
+            usleep(700)
+//            usleep(700_000)
         case .loan:
-            usleep(1_100_000)
+//            usleep(1_100_000)
+            usleep(700)
         }
         print("\(customer.waitingNumber)번 고객 \(customer.purposeOfService.rawValue)업무 종료")
     }
