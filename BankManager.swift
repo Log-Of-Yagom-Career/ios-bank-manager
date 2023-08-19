@@ -4,4 +4,7 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
+struct BankManager {
+    let nickName: String
+//    let task: Task
+}
